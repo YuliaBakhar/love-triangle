@@ -4,27 +4,26 @@
  */
 module.exports = function getLoveTrianglesCount(preferences = []) {
   // your implementation
-  loveTriangles = 0
+    loveTriangles = 0
   
-  for(i=0; i<preferences.length; i++){
-  ind1 = i+1;
-  elem1 = preferences[ind1-1];
+    for(i=0; i<preferences.length; i++){
+    firstIndex = i+1;
+    firstValue = preferences[firstIndex-1];
   
-  if (ind1!=elem1){
+    if (firstIndex!=firstValue){
       
-    ind2 = elem1;
-    elem2 = preferences[ind2-1];
+      secondIndex = firstValue;
+      secondValue = preferences[secondIndex-1];
     
-    if (ind2!=elem2 && elem2!=ind1){
-      ind3 = elem2;
-      elem3 = preferences[ind3-1];
+    if (secondIndex!=secondValue && secondValue!=firstIndex){
+        thirdIndex = secondValue;
+        thirdValue = preferences[thirdIndex-1];
         
-      if (elem3 == ind1){ 
-        loveTriangles = loveTriangles + 1;
+       if (thirdValue == firstIndex){ 
+          loveTriangles = loveTriangles + 1;
+        }
       }
     }
-  }
-    
   }
   return loveTriangles / 3;
 };
